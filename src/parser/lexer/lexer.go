@@ -90,6 +90,10 @@ func (l *Lexer) Tokenize() []tokens.Token {
 		case '?': l.addToken("?", tokens.UnaryIf); l.Next()
 		case ':': l.addToken(":", tokens.UnaryElse); l.Next()
 		case ';': l.addToken(";", tokens.SemiColon); l.Next()
+		case '(': l.addToken("(", tokens.OpenParen); l.Next()
+		case ')': l.addToken(")", tokens.CloseParen); l.Next()
+		case '{': l.addToken("{", tokens.OpenBrace); l.Next()
+		case '}': l.addToken("}", tokens.CloseBrace); l.Next()
 		}
 
 		if isNum(l.At()) {

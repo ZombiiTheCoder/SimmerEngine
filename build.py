@@ -8,3 +8,5 @@ for root, paths, files in os.walk("src"):
 
 os.chdir("src")
 os.system("go build -o ../bin/SimmerJs.exe "+" ".join(src))
+os.chdir("../")
+os.system("./bin/SimerJs tests/numbers.js")

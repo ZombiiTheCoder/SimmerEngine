@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	lex := lexer.InitLexer(os.ReadFile("F:/Projects/SimmerJsEngine/tests/numbers.js"))
+	lex := lexer.InitLexer(os.ReadFile(os.Args[1]))
 	par := parser.InitParser(lex.Tokenize())
 	fmt.Println(par.ProduceAst())
 }

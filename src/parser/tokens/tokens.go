@@ -70,5 +70,11 @@ const (
 	Identifer
 	String
 
+	OpenParen
+	CloseParen
+
+	OpenBrace
+	CloseBrace
+
 	EOF
 )
