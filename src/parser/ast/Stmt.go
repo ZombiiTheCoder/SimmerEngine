@@ -1,11 +1,13 @@
 package ast
 
 type Program struct {
-	Stmt
-	Body []Stmt
+	Stmt     `json:"-"`
+	NodeType string
+	Body     []Stmt
 }
 
 type ExprStmt struct {
-	Stmt
+	Stmt       `json:"-"`
+	NodeType   string
 	Expression Expr
 }

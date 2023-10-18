@@ -61,8 +61,8 @@ const (
 	Comma
 	Dot
 
-	UnaryIf
-	UnaryElse
+	TernaryIf
+	TernaryElse
 
 	SemiColon
 
@@ -76,5 +76,84 @@ const (
 	OpenBrace
 	CloseBrace
 
+	// Keywords
+	Break
+	For
+	New
+	Var
+	Continue
+	Function
+	Return
+	Void
+	Delete
+	If
+	This
+	While
+	Else
+	In
+	Typeof
+	With
+
+	// Future Keywords
+	Case
+	Debugger
+	Export
+	Super
+	Catch
+	Default
+	Extends
+	Switch
+	Class
+	Do
+	Finally
+	Throw
+	Const
+	Enum
+	Import
+	Try
+
 	EOF
 )
+
+func GetKeyword(keyword string) TokenType {
+	dict := map[string]TokenType{
+		"break":    Break,
+		"for":      For,
+		"new":      New,
+		"var":      Var,
+		"continue": Continue,
+		"function": Function,
+		"return":   Return,
+		"void":     Void,
+		"delete":   Delete,
+		"if":       If,
+		"this":     This,
+		"while":    While,
+		"else":     Else,
+		"in":       In,
+		"typeof":   Typeof,
+		"with":     With,
+
+		"case":     Case,
+		"debugger": Debugger,
+		"export":   Export,
+		"super":    Super,
+		"catch":    Catch,
+		"default":  Default,
+		"extends":  Extends,
+		"switch":   Switch,
+		"class":    Class,
+		"do":       Do,
+		"finally":  Finally,
+		"throw":    Throw,
+		"const":    Const,
+		"enum":     Enum,
+		"import":   Import,
+		"try":      Try,
+	}
+	if _, ok := dict[keyword]; ok {
+		return dict[keyword]
+	} else {
+		return Identifer
+	}
+}

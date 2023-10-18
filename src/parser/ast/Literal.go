@@ -1,6 +1,7 @@
 package ast
 
 type NumberLiteral struct {
-	Expr
-	Value string
+	Expr     `json:"-"`
+	NodeType string
+	Value    string
 }

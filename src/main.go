@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"os"
 	"simmer_js_engine/parser"
@@ -10,5 +11,6 @@ import (
 func main() {
 	lex := lexer.InitLexer(os.ReadFile(os.Args[1]))
 	par := parser.InitParser(lex.Tokenize())
-	fmt.Println(par.ProduceAst())
+	by, _ := json.MarshalIndent(par.ProduceAst(), "", "	",)
+	fmt.Println(string(by))
 }
