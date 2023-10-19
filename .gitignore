@@ -1,6 +1,4 @@
 bin
 .AddCompLib
-# **/__pycache__
-# *.o
-# src_cpp
-scripts/build_cpp.py
+**/__pycache__
+*.o
