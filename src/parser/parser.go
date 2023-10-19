@@ -26,6 +26,7 @@ func (p *Parser) NotEof() bool { return p.At().Type != tokens.EOF }
 func (p *Parser) At() tokens.Token { return p.tokens[p.ptr] }
 func (p *Parser) Expect(ExpectedType tokens.TokenType) tokens.Token { p.ptr++; if p.tokens[p.ptr-1].Type == ExpectedType { return p.tokens[p.ptr-1] }; fmt.Println("Unexpected Type -> VALUE: "+p.tokens[p.ptr-1].Value); os.Exit(1); return tokens.Token{Value: "EOF", Type: tokens.EOF}; }
 func (p *Parser) Next() tokens.Token { p.ptr++; return p.tokens[p.ptr-1] }
+func (p *Parser) Peek() tokens.Token { if (p.NotEof() && p.ptr+1 < len(p.tokens)) { return p.tokens[p.ptr+1] }; return tokens.Token{Type: tokens.EOF} }
 
 func (p *Parser) ProduceAst() ast.Stmt {
 	body := make([]ast.Stmt, 0);
@@ -58,7 +59,8 @@ func (p *Parser) ParseAssignExpr() ast.Expr {
 		tokens.UnsignedRightShiftAssign,
 		tokens.AndAssign,
 		tokens.XorAssign,
-		tokens.OrAssign:
+		tokens.OrAssign,
+		tokens.BitwiseNotAssign:
 			op := p.Next().Type
 			right := p.ParseAssignExpr()
 			return ast.AssignExpr{
@@ -234,10 +236,10 @@ func (p *Parser) ParseAdditiveExpr() ast.Expr {
 }
 
 func (p *Parser) ParseMultiplicativeExpr() ast.Expr {
-	left := p.ParsePostfixExpr()
+	left := p.ParsePrefixExpr()
 	for p.At().Type == tokens.Multiply || p.At().Type == tokens.Divide || p.At().Type == tokens.Modulo {
 		op := p.Next().Type
-		right := p.ParsePostfixExpr()
+		right := p.ParsePrefixExpr()
 		left = ast.BinaryExpr{
 			NodeType: "BinaryExpr",
 			Left: left,
@@ -248,9 +250,25 @@ func (p *Parser) ParseMultiplicativeExpr() ast.Expr {
 	return left
 }
 
+func (p *Parser) ParsePrefixExpr() ast.Expr {
+	fmt.Println(p.Peek().Type == tokens.Increment)
+	if (p.Peek().Type == tokens.Increment) {
+		op := p.Next().Type
+		right := p.ParsePostfixExpr()
+		return ast.PrefixExpr{
+			NodeType: "PrefixExpr",
+			Op: op,
+			Right: right,
+		}
+	}
+
+	return p.ParsePostfixExpr()
+}
+
 func (p *Parser) ParsePostfixExpr() ast.Expr {
 	left := p.ParsePrimaryExpr()
 	for p.At().Type == tokens.Increment || p.At().Type == tokens.Decrement {
+		fmt.Println(p.At())
 		op := p.Next().Type
 		return ast.PostfixExpr{
 			NodeType: "PostfixExpr",
@@ -263,8 +281,16 @@ func (p *Parser) ParsePostfixExpr() ast.Expr {
 
 func (p *Parser) ParsePrimaryExpr() ast.Expr {
 	switch p.At().Type {
+	case tokens.Identifer: return ast.Identifer{
+		NodeType: "Identifer",
+		Value: p.Next().Value,
+	}
 	case tokens.Number: return ast.NumberLiteral{
-		NodeType: "Number",
+		NodeType: "NumberLiteral",
+		Value: p.Next().Value,
+	}
+	case tokens.String: return ast.StringLiteral{
+		NodeType: "StringLiteral",
 		Value: p.Next().Value,
 	}
 	default: fmt.Println("Unexpected Token: "+p.At().Value); os.Exit(-1); return ast.NumberLiteral{ Value: p.Next().Value }

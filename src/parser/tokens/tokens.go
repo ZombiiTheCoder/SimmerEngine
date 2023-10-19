@@ -56,7 +56,8 @@ const (
 	ModuloAssign
 	Modulo
 
-	UnaryNotAssign
+	BitwiseNotAssign
+	BitwiseNot
 
 	Comma
 	Dot

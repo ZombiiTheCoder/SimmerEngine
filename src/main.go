@@ -10,7 +10,11 @@ import (
 
 func main() {
 	lex := lexer.InitLexer(os.ReadFile(os.Args[1]))
-	par := parser.InitParser(lex.Tokenize())
+	tokens := lex.Tokenize()
+	par := parser.InitParser(tokens)
+	// for _, v := range tokens {
+	// 	fmt.Println(v)
+	// }
 	by, _ := json.MarshalIndent(par.ProduceAst(), "", "	",)
 	fmt.Println(string(by))
 }

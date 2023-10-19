@@ -38,53 +38,55 @@ func (l *Lexer) Tokenize() []tokens.Token {
 		switch l.At() { case ' ', '\n', '\t', '\b', '\r', '\f': l.Next() }
 		// One/Multi CharTokens
 		switch l.At() { 
-		case '=': l.Next()
-			if l.Peek(1) == '=' { l.addToken("==", tokens.Equals); l.Next(); break }
-			l.addToken("=", tokens.EqualsAssign)
-		case '<': l.Next()
-			if l.Peek(1) == '=' { l.addToken("<=", tokens.SmallerThanEqualTo); l.Next(); break }
-			if l.Peek(1) == '<' { l.addToken("<<", tokens.LeftShift); l.Next(); break }
-			if l.Peek(1) == '<' { l.addToken("<<=", tokens.LeftShiftAssign); l.Next(); break }
-			l.addToken("<", tokens.SmallerThan)
-		case '>': l.Next()
-			if l.Peek(1) == '=' { l.addToken(">=", tokens.BiggerThanEqualTo); l.Next(); break }
-			if l.Peek(1) == '>' { l.addToken(">>", tokens.RightShift); l.Next(); break }
-			if l.Peek(1) == '>' { l.addToken(">>=", tokens.RightShiftAssign); l.Next(); break }
-			if l.Peek(1) == '>' && l.Peek(2) == '>' { l.addToken(">>>", tokens.UnsignedRightShift); l.Next(); l.Next(); break }
-			if l.Peek(1) == '>' && l.Peek(2) == '>' && l.Peek(3) == '=' { l.addToken(">>>=", tokens.UnsignedRightShiftAssign); l.Next(); l.Next(); l.Next(); break }
-			l.addToken(">", tokens.BiggerThan)
-		case '+': l.Next()
-			if l.Peek(1) == '+' { l.addToken("++", tokens.Increment); l.Next(); break }
-			if l.Peek(1) == '=' { l.addToken("+=", tokens.PlusAssign); l.Next(); break }
-			l.addToken("+", tokens.Plus);
-		case '-': l.Next()
-			if l.Peek(1) == '-' { l.addToken("--", tokens.Decrement); l.Next(); break }
-			if l.Peek(1) == '=' { l.addToken("-=", tokens.MinusAssign); l.Next(); break }
-			l.addToken("-", tokens.Minus)
-		case '!': l.Next()
-			if l.Peek(1) == '=' { l.addToken("!=", tokens.NotEquals); l.Next(); break }
-			l.addToken("!", tokens.LogicalNot)
-		case '*': l.Next()
-			if l.Peek(1) == '=' { l.addToken("*=", tokens.MultiplyAssign); l.Next(); break }
-			l.addToken("*", tokens.Multiply)
-		case '/': l.Next()
-			if l.Peek(1) == '=' { l.addToken("/=", tokens.DivideAssign); l.Next(); break }
-			l.addToken("/", tokens.Divide)
-		case '&': l.Next()
-			if l.Peek(1) == '=' { l.addToken("&=", tokens.AndAssign); l.Next(); break }
-			if l.Peek(1) == '|' { l.addToken("&&", tokens.LogicalAnd); l.Next(); break }
-			l.addToken("&", tokens.BitwiseAnd)
-		case '|': l.Next()
-			if l.Peek(1) == '=' { l.addToken("|=", tokens.OrAssign); l.Next(); break }
-			if l.Peek(1) == '|' { l.addToken("||", tokens.LogicalOr); l.Next(); break }
-			l.addToken("|", tokens.BitwiseOr)
-		case '^': l.Next()
-			if l.Peek(1) == '=' { l.addToken("^=", tokens.XorAssign); l.Next(); break }
-			l.addToken("^", tokens.BitwiseXor);
-		case '%': l.Next()
-			if l.Peek(1) == '=' { l.addToken("%=", tokens.ModuloAssign); l.Next(); break }
-			l.addToken("%", tokens.Modulo)
-		case '~': l.addToken("~", tokens.UnaryNotAssign); l.Next()
+		case '=':
+			if l.Peek(1) == '=' { l.addToken("==", tokens.Equals); l.Next(); l.Next(); break }
+			l.addToken("=", tokens.EqualsAssign); l.Next()
+		case '<':
+			if l.Peek(1) == '=' { l.addToken("<=", tokens.SmallerThanEqualTo); l.Next(); l.Next(); break }
+			if l.Peek(1) == '<' { l.addToken("<<", tokens.LeftShift); l.Next(); l.Next(); break }
+			if l.Peek(1) == '<' { l.addToken("<<=", tokens.LeftShiftAssign); l.Next(); l.Next(); break }
+			l.addToken("<", tokens.SmallerThan); l.Next()
+		case '>':
+			if l.Peek(1) == '=' { l.addToken(">=", tokens.BiggerThanEqualTo); l.Next(); l.Next(); break }
+			if l.Peek(1) == '>' { l.addToken(">>", tokens.RightShift); l.Next(); l.Next(); break }
+			if l.Peek(1) == '>' { l.addToken(">>=", tokens.RightShiftAssign); l.Next(); l.Next(); break }
+			if l.Peek(1) == '>' && l.Peek(2) == '>' { l.addToken(">>>", tokens.UnsignedRightShift); l.Next(); l.Next(); l.Next(); break }
+			if l.Peek(1) == '>' && l.Peek(2) == '>' && l.Peek(3) == '=' { l.addToken(">>>=", tokens.UnsignedRightShiftAssign); l.Next(); l.Next(); l.Next(); l.Next(); break }
+			l.addToken(">", tokens.BiggerThan); l.Next()
+		case '+':
+			if l.Peek(1) == '+' { l.addToken("++", tokens.Increment); l.Next(); l.Next(); break }
+			if l.Peek(1) == '=' { l.addToken("+=", tokens.PlusAssign); l.Next(); l.Next(); break }
+			l.addToken("+", tokens.Plus); l.Next()
+		case '-':
+			if l.Peek(1) == '-' { l.addToken("--", tokens.Decrement); l.Next(); l.Next(); break }
+			if l.Peek(1) == '=' { l.addToken("-=", tokens.MinusAssign); l.Next(); l.Next(); break }
+			l.addToken("-", tokens.Minus); l.Next()
+		case '!':
+			if l.Peek(1) == '=' { l.addToken("!=", tokens.NotEquals); l.Next(); l.Next(); break }
+			l.addToken("!", tokens.LogicalNot); l.Next()
+		case '*':
+			if l.Peek(1) == '=' { l.addToken("*=", tokens.MultiplyAssign); l.Next(); l.Next(); break }
+			l.addToken("*", tokens.Multiply); l.Next()
+		case '/':
+			if l.Peek(1) == '=' { l.addToken("/=", tokens.DivideAssign); l.Next(); l.Next(); break }
+			l.addToken("/", tokens.Divide); l.Next()
+		case '&':
+			if l.Peek(1) == '=' { l.addToken("&=", tokens.AndAssign); l.Next(); l.Next(); break }
+			if l.Peek(1) == '|' { l.addToken("&&", tokens.LogicalAnd); l.Next(); l.Next(); break }
+			l.addToken("&", tokens.BitwiseAnd); l.Next()
+		case '|':
+			if l.Peek(1) == '=' { l.addToken("|=", tokens.OrAssign); l.Next(); l.Next(); break }
+			if l.Peek(1) == '|' { l.addToken("||", tokens.LogicalOr); l.Next(); l.Next(); break }
+			l.addToken("|", tokens.BitwiseOr); l.Next()
+		case '^':
+			if l.Peek(1) == '=' { l.addToken("^=", tokens.XorAssign); l.Next(); l.Next(); break }
+			l.addToken("^", tokens.BitwiseXor); l.Next()
+		case '%':
+			if l.Peek(1) == '=' { l.addToken("%=", tokens.ModuloAssign); l.Next(); l.Next(); break }
+			l.addToken("%", tokens.Modulo); l.Next()
+		case '~':
+			if l.Peek(1) == '=' { l.addToken("~=", tokens.BitwiseNotAssign); l.Next(); l.Next(); break }
+			l.addToken("~", tokens.BitwiseNot); l.Next()
 		case ',': l.addToken(",", tokens.Comma); l.Next()
 		case '.': l.addToken(".", tokens.Dot); l.Next()
 		case '?': l.addToken("?", tokens.TernaryIf); l.Next()

@@ -18,7 +18,7 @@ type TernaryExpr struct {
 	Else Expr
 }
 
-type PrefixUnaryExpr struct {
+type PrefixExpr struct {
 	Expr `json:"-"`
 	NodeType string
 	Right  Expr
