@@ -1,0 +1,149 @@
+{
+	"NodeType": "Program",
+	"Body": [
+		{
+			"NodeType": "FuncStmt",
+			"Name": "fib",
+			"Args": [
+				{
+					"NodeType": "Identifier",
+					"Value": "num"
+				}
+			],
+			"Body": [
+				{
+					"NodeType": "VarStmtList",
+					"Stmts": [
+						{
+							"NodeType": "VarStmt",
+							"Name": "a",
+							"Value": {
+								"NodeType": "NumberLiteral",
+								"Value": "1"
+							},
+							"IsConst": false
+						},
+						{
+							"NodeType": "VarStmt",
+							"Name": "b",
+							"Value": {
+								"NodeType": "NumberLiteral",
+								"Value": "0"
+							},
+							"IsConst": false
+						},
+						{
+							"NodeType": "VarStmt",
+							"Name": "temp",
+							"Value": {
+								"NodeType": "Identifier",
+								"Value": "null"
+							},
+							"IsConst": false
+						}
+					]
+				},
+				{
+					"NodeType": "WhileStmt",
+					"Condition": {
+						"NodeType": "BinaryExpr",
+						"Left": {
+							"NodeType": "Identifier",
+							"Value": "num"
+						},
+						"Right": {
+							"NodeType": "NumberLiteral",
+							"Value": "0"
+						},
+						"Op": "\u003e="
+					},
+					"Body": {
+						"NodeType": "BodyStmt",
+						"Body": [
+							{
+								"NodeType": "ExprStmt",
+								"Expression": {
+									"NodeType": "AssignExpr",
+									"Left": {
+										"NodeType": "Identifier",
+										"Value": "temp"
+									},
+									"Right": {
+										"NodeType": "Identifier",
+										"Value": "a"
+									},
+									"Op": "="
+								}
+							},
+							{
+								"NodeType": "ExprStmt",
+								"Expression": {
+									"NodeType": "AssignExpr",
+									"Left": {
+										"NodeType": "Identifier",
+										"Value": "a"
+									},
+									"Right": {
+										"NodeType": "BinaryExpr",
+										"Left": {
+											"NodeType": "Identifier",
+											"Value": "a"
+										},
+										"Right": {
+											"NodeType": "Identifier",
+											"Value": "b"
+										},
+										"Op": "+"
+									},
+									"Op": "="
+								}
+							},
+							{
+								"NodeType": "ExprStmt",
+								"Expression": {
+									"NodeType": "AssignExpr",
+									"Left": {
+										"NodeType": "Identifier",
+										"Value": "b"
+									},
+									"Right": {
+										"NodeType": "Identifier",
+										"Value": "temp"
+									},
+									"Op": "="
+								}
+							},
+							{
+								"NodeType": "ExprStmt",
+								"Expression": {
+									"NodeType": "PostfixExpr",
+									"Left": {
+										"NodeType": "Identifier",
+										"Value": "num"
+									},
+									"Op": "--"
+								}
+							}
+						]
+					}
+				}
+			]
+		},
+		{
+			"NodeType": "ExprStmt",
+			"Expression": {
+				"NodeType": "",
+				"Caller": {
+					"NodeType": "Identifier",
+					"Value": "fib"
+				},
+				"Args": [
+					{
+						"NodeType": "NumberLiteral",
+						"Value": "1000"
+					}
+				]
+			}
+		}
+	]
+}

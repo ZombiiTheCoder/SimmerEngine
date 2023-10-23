@@ -3,158 +3,188 @@ package tokens
 type Token struct {
 	Value string
 	Type  TokenType
+	Line  int
 }
 
-type TokenType int
+type TokenType string
 
 const (
-	Invalid TokenType = iota
+	Invalid TokenType = "!!!!!!!!!!!!!!!!!!"
 
-	Equals
-	EqualsAssign
+	Equals       = "=="
+	EqualsAssign = "="
 
-	SmallerThanEqualTo
-	LeftShift
-	LeftShiftAssign
-	SmallerThan
+	SmallerThanEqualTo = "<="
+	LeftShift          = ">="
+	LeftShiftAssign    = "<<="
+	SmallerThan        = "<"
 
-	BiggerThanEqualTo
-	RightShift
-	RightShiftAssign
-	UnsignedRightShift
-	UnsignedRightShiftAssign
-	BiggerThan
+	BiggerThanEqualTo        = ">="
+	RightShift               = ">>"
+	RightShiftAssign         = ">>="
+	UnsignedRightShift       = ">>>"
+	UnsignedRightShiftAssign = ">>>="
+	BiggerThan               = ">"
 
-	Increment
-	PlusAssign
-	Plus
+	Increment  = "++"
+	PlusAssign = "+="
+	Plus       = "+"
 
-	Decrement
-	MinusAssign
-	Minus
+	Decrement   = "--"
+	MinusAssign = "-="
+	Minus       = "-"
 
-	NotEquals
-	LogicalNot
+	NotEquals  = "!="
+	LogicalNot = "!"
 
-	MultiplyAssign
-	Multiply
+	MultiplyAssign = "*="
+	Multiply       = "*"
 
-	DivideAssign
-	Divide
+	DivideAssign = "/="
+	Divide       = "/"
 
-	AndAssign
-	LogicalAnd
-	BitwiseAnd
+	AndAssign  = "&="
+	LogicalAnd = "&&"
+	BitwiseAnd = "&"
 
-	OrAssign
-	LogicalOr
-	BitwiseOr
+	OrAssign  = "|="
+	LogicalOr = "||"
+	BitwiseOr = "|"
 
-	XorAssign
-	BitwiseXor
+	XorAssign  = "^="
+	BitwiseXor = "^"
 
-	ModuloAssign
-	Modulo
+	ModuloAssign = "%="
+	Modulo       = "%"
 
-	BitwiseNotAssign
-	BitwiseNot
+	BitwiseNotAssign = "~="
+	BitwiseNot       = "~"
 
-	Comma
-	Dot
+	Comma = ","
+	Dot   = "."
 
-	TernaryIf
-	TernaryElse
+	TernaryIf   = "?"
+	TernaryElse = ":"
 
-	SemiColon
+	SemiColon = ";"
 
-	Number
-	Identifer
-	String
+	Number     = "Number"
+	Identifier = "Identifier"
+	String     = "String"
 
-	OpenParen
-	CloseParen
+	OpenParen  = "("
+	CloseParen = ")"
 
-	OpenBrace
-	CloseBrace
+	OpenBrace  = "{"
+	CloseBrace = "}"
 
 	// Keywords
-	Break
-	For
-	New
-	Var
-	Continue
-	Function
-	Return
-	Void
-	Delete
-	If
-	This
-	While
-	Else
-	In
-	Typeof
-	With
+	Break    = "break"
+	For      = "for"
+	New      = "new"
+	Var      = "var"
+	Continue = "continue"
+	Function = "function"
+	Return   = "return"
+	Void     = "void"
+	Delete   = "delete"
+	If       = "if"
+	This     = "this"
+	While    = "while"
+	Else     = "else"
+	In       = "in"
+	Typeof   = "typeof"
+	With     = "with"
 
 	// Future Keywords
-	Case
-	Debugger
-	Export
-	Super
-	Catch
-	Default
-	Extends
-	Switch
-	Class
-	Do
-	Finally
-	Throw
-	Const
-	Enum
-	Import
-	Try
+	Case     = "case"
+	Debugger = "debugger"
+	Export   = "export"
+	Super    = "super"
+	Catch    = "catch"
+	Default  = "default"
+	Extends  = "extends"
+	Switch   = "switch"
+	Class    = "class"
+	Do       = "do"
+	Finally  = "finally"
+	Throw    = "throw"
+	Const    = "const"
+	Enum     = "enum"
+	Import   = "import"
+	Try      = "try"
 
-	EOF
+	EOF = "EOF"
 )
 
 func GetKeyword(keyword string) TokenType {
-	dict := map[string]TokenType{
-		"break":    Break,
-		"for":      For,
-		"new":      New,
-		"var":      Var,
-		"continue": Continue,
-		"function": Function,
-		"return":   Return,
-		"void":     Void,
-		"delete":   Delete,
-		"if":       If,
-		"this":     This,
-		"while":    While,
-		"else":     Else,
-		"in":       In,
-		"typeof":   Typeof,
-		"with":     With,
+	switch keyword {
 
-		"case":     Case,
-		"debugger": Debugger,
-		"export":   Export,
-		"super":    Super,
-		"catch":    Catch,
-		"default":  Default,
-		"extends":  Extends,
-		"switch":   Switch,
-		"class":    Class,
-		"do":       Do,
-		"finally":  Finally,
-		"throw":    Throw,
-		"const":    Const,
-		"enum":     Enum,
-		"import":   Import,
-		"try":      Try,
-	}
-	if _, ok := dict[keyword]; ok {
-		return dict[keyword]
-	} else {
-		return Identifer
+	case "break":
+		return Break
+	case "for":
+		return For
+	case "new":
+		return New
+	case "var":
+		return Var
+	case "continue":
+		return Continue
+	case "function":
+		return Function
+	case "return":
+		return Return
+	case "void":
+		return Void
+	case "delete":
+		return Delete
+	case "if":
+		return If
+	case "this":
+		return This
+	case "while":
+		return While
+	case "else":
+		return Else
+	case "in":
+		return In
+	case "typeof":
+		return Typeof
+	case "with":
+		return With
+	case "case":
+		return Case
+	case "debugger":
+		return Debugger
+	case "export":
+		return Export
+	case "super":
+		return Super
+	case "catch":
+		return Catch
+	case "default":
+		return Default
+	case "extends":
+		return Extends
+	case "switch":
+		return Switch
+	case "class":
+		return Class
+	case "do":
+		return Do
+	case "finally":
+		return Finally
+	case "throw":
+		return Throw
+	case "const":
+		return Const
+	case "enum":
+		return Enum
+	case "import":
+		return Import
+	case "try":
+		return Try
+	default:
+		return Identifier
 	}
 }

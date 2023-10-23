@@ -10,6 +10,7 @@ type Lexer struct {
 	chars []byte
 	tokens []tokens.Token
 	isEof bool
+	Line int
 }
 
 func InitLexer(chars []byte, _ error) *Lexer { return &Lexer{
@@ -30,12 +31,13 @@ func (l *Lexer) Next() { l.ptr++ }
 func (l *Lexer) addToken(value string, typee tokens.TokenType) {l.tokens = append(l.tokens, tokens.Token{
 	Value: value,
 	Type: typee,
+	Line: l.Line,
 }) }
 
 func (l *Lexer) Tokenize() []tokens.Token {
 	for !l.isEof {
 		// Skip White Tokens
-		switch l.At() { case ' ', '\n', '\t', '\b', '\r', '\f': l.Next() }
+		switch l.At() { case ' ', '\t', '\b', '\r', '\f': l.Next(); case '\n': l.Next(); l.Line++ }
 		// One/Multi CharTokens
 		switch l.At() { 
 		case '=':
@@ -44,12 +46,12 @@ func (l *Lexer) Tokenize() []tokens.Token {
 		case '<':
 			if l.Peek(1) == '=' { l.addToken("<=", tokens.SmallerThanEqualTo); l.Next(); l.Next(); break }
 			if l.Peek(1) == '<' { l.addToken("<<", tokens.LeftShift); l.Next(); l.Next(); break }
-			if l.Peek(1) == '<' { l.addToken("<<=", tokens.LeftShiftAssign); l.Next(); l.Next(); break }
+			if l.Peek(1) == '<' && l.Peek(2) == '=' { l.addToken("<<=", tokens.LeftShiftAssign); l.Next(); l.Next(); break }
 			l.addToken("<", tokens.SmallerThan); l.Next()
 		case '>':
 			if l.Peek(1) == '=' { l.addToken(">=", tokens.BiggerThanEqualTo); l.Next(); l.Next(); break }
 			if l.Peek(1) == '>' { l.addToken(">>", tokens.RightShift); l.Next(); l.Next(); break }
-			if l.Peek(1) == '>' { l.addToken(">>=", tokens.RightShiftAssign); l.Next(); l.Next(); break }
+			if l.Peek(1) == '>'&& l.Peek(2) == '=' { l.addToken(">>=", tokens.RightShiftAssign); l.Next(); l.Next(); break }
 			if l.Peek(1) == '>' && l.Peek(2) == '>' { l.addToken(">>>", tokens.UnsignedRightShift); l.Next(); l.Next(); l.Next(); break }
 			if l.Peek(1) == '>' && l.Peek(2) == '>' && l.Peek(3) == '=' { l.addToken(">>>=", tokens.UnsignedRightShiftAssign); l.Next(); l.Next(); l.Next(); l.Next(); break }
 			l.addToken(">", tokens.BiggerThan); l.Next()
@@ -72,7 +74,7 @@ func (l *Lexer) Tokenize() []tokens.Token {
 			l.addToken("/", tokens.Divide); l.Next()
 		case '&':
 			if l.Peek(1) == '=' { l.addToken("&=", tokens.AndAssign); l.Next(); l.Next(); break }
-			if l.Peek(1) == '|' { l.addToken("&&", tokens.LogicalAnd); l.Next(); l.Next(); break }
+			if l.Peek(1) == '&' { l.addToken("&&", tokens.LogicalAnd); l.Next(); l.Next(); break }
 			l.addToken("&", tokens.BitwiseAnd); l.Next()
 		case '|':
 			if l.Peek(1) == '=' { l.addToken("|=", tokens.OrAssign); l.Next(); l.Next(); break }
@@ -116,17 +118,15 @@ func (l *Lexer) Tokenize() []tokens.Token {
 			for isAlnum(l.At()) && !l.isEof {
 				value.WriteByte(l.At()); l.Next()
 			}
-			l.addToken(value.String(), tokens.Identifer)
+			l.addToken(value.String(), tokens.GetKeyword(value.String()))
 		}
 		// Tokenize String
 		if l.At() == '"' || l.At() == '`' || l.At() == '\'' {
 			l.Next()
-			value := new(strings.Builder)
-			for l.At() == '"' || l.At() == '`' || l.At() == '\'' && !l.isEof {
-				value.WriteByte(l.At()); l.Next()
-			}
+			pos := l.ptr
+			for l.At() == '"' || l.At() == '`' || l.At() == '\'' && !l.isEof { l.Next() }
+			l.addToken(string(l.chars[pos:l.ptr]), tokens.String)
 			l.Next()
-			l.addToken(value.String(), tokens.Identifer)
 		}
 	}
 	l.addToken("End Of File", tokens.EOF)

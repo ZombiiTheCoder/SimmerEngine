@@ -1,0 +1,1068 @@
+{
+	"NodeType": "Program",
+	"Body": [
+		{
+			"NodeType": "ExprStmt",
+			"Expression": {
+				"NodeType": "BinaryExpr",
+				"Left": {
+					"NodeType": "NumberLiteral",
+					"Value": "1"
+				},
+				"Right": {
+					"NodeType": "NumberLiteral",
+					"Value": "2"
+				},
+				"Op": "!="
+			}
+		},
+		{
+			"NodeType": "ExprStmt",
+			"Expression": {
+				"NodeType": "BinaryExpr",
+				"Left": {
+					"NodeType": "NumberLiteral",
+					"Value": "1"
+				},
+				"Right": {
+					"NodeType": "NumberLiteral",
+					"Value": "2"
+				},
+				"Op": "=="
+			}
+		},
+		{
+			"NodeType": "ExprStmt",
+			"Expression": {
+				"NodeType": "ParenthesizedExpr",
+				"Expression": {
+					"NodeType": "BinaryExpr",
+					"Left": {
+						"NodeType": "NumberLiteral",
+						"Value": "1"
+					},
+					"Right": {
+						"NodeType": "NumberLiteral",
+						"Value": "1"
+					},
+					"Op": "+"
+				}
+			}
+		},
+		{
+			"NodeType": "ExprStmt",
+			"Expression": {
+				"NodeType": "BinaryExpr",
+				"Left": {
+					"NodeType": "NumberLiteral",
+					"Value": "1"
+				},
+				"Right": {
+					"NodeType": "NumberLiteral",
+					"Value": "1"
+				},
+				"Op": "-"
+			}
+		},
+		{
+			"NodeType": "ExprStmt",
+			"Expression": {
+				"NodeType": "BinaryExpr",
+				"Left": {
+					"NodeType": "NumberLiteral",
+					"Value": "1"
+				},
+				"Right": {
+					"NodeType": "NumberLiteral",
+					"Value": "1"
+				},
+				"Op": "/"
+			}
+		},
+		{
+			"NodeType": "ExprStmt",
+			"Expression": {
+				"NodeType": "BinaryExpr",
+				"Left": {
+					"NodeType": "NumberLiteral",
+					"Value": "1"
+				},
+				"Right": {
+					"NodeType": "NumberLiteral",
+					"Value": "1"
+				},
+				"Op": "*"
+			}
+		},
+		{
+			"NodeType": "ExprStmt",
+			"Expression": {
+				"NodeType": "BinaryExpr",
+				"Left": {
+					"NodeType": "BinaryExpr",
+					"Left": {
+						"NodeType": "NumberLiteral",
+						"Value": "1"
+					},
+					"Right": {
+						"NodeType": "NumberLiteral",
+						"Value": "1"
+					},
+					"Op": "-"
+				},
+				"Right": {
+					"NodeType": "NumberLiteral",
+					"Value": "1"
+				},
+				"Op": "+"
+			}
+		},
+		{
+			"NodeType": "ExprStmt",
+			"Expression": {
+				"NodeType": "BinaryExpr",
+				"Left": {
+					"NodeType": "BinaryExpr",
+					"Left": {
+						"NodeType": "NumberLiteral",
+						"Value": "1"
+					},
+					"Right": {
+						"NodeType": "NumberLiteral",
+						"Value": "1"
+					},
+					"Op": "/"
+				},
+				"Right": {
+					"NodeType": "NumberLiteral",
+					"Value": "1"
+				},
+				"Op": "*"
+			}
+		},
+		{
+			"NodeType": "ExprStmt",
+			"Expression": {
+				"NodeType": "BinaryExpr",
+				"Left": {
+					"NodeType": "NumberLiteral",
+					"Value": "1.1"
+				},
+				"Right": {
+					"NodeType": "NumberLiteral",
+					"Value": "1.2"
+				},
+				"Op": "+"
+			}
+		},
+		{
+			"NodeType": "ExprStmt",
+			"Expression": {
+				"NodeType": "BinaryExpr",
+				"Left": {
+					"NodeType": "NumberLiteral",
+					"Value": "1.1"
+				},
+				"Right": {
+					"NodeType": "NumberLiteral",
+					"Value": "1.2"
+				},
+				"Op": "-"
+			}
+		},
+		{
+			"NodeType": "ExprStmt",
+			"Expression": {
+				"NodeType": "BinaryExpr",
+				"Left": {
+					"NodeType": "NumberLiteral",
+					"Value": "1.1"
+				},
+				"Right": {
+					"NodeType": "NumberLiteral",
+					"Value": "1.2"
+				},
+				"Op": "/"
+			}
+		},
+		{
+			"NodeType": "ExprStmt",
+			"Expression": {
+				"NodeType": "BinaryExpr",
+				"Left": {
+					"NodeType": "NumberLiteral",
+					"Value": "1.1"
+				},
+				"Right": {
+					"NodeType": "NumberLiteral",
+					"Value": "1.2"
+				},
+				"Op": "*"
+			}
+		},
+		{
+			"NodeType": "ExprStmt",
+			"Expression": {
+				"NodeType": "BinaryExpr",
+				"Left": {
+					"NodeType": "BinaryExpr",
+					"Left": {
+						"NodeType": "NumberLiteral",
+						"Value": "1.1"
+					},
+					"Right": {
+						"NodeType": "NumberLiteral",
+						"Value": "1.2"
+					},
+					"Op": "-"
+				},
+				"Right": {
+					"NodeType": "NumberLiteral",
+					"Value": "1.3"
+				},
+				"Op": "+"
+			}
+		},
+		{
+			"NodeType": "ExprStmt",
+			"Expression": {
+				"NodeType": "BinaryExpr",
+				"Left": {
+					"NodeType": "BinaryExpr",
+					"Left": {
+						"NodeType": "NumberLiteral",
+						"Value": "1.1"
+					},
+					"Right": {
+						"NodeType": "NumberLiteral",
+						"Value": "1.2"
+					},
+					"Op": "/"
+				},
+				"Right": {
+					"NodeType": "NumberLiteral",
+					"Value": "1.3"
+				},
+				"Op": "*"
+			}
+		},
+		{
+			"NodeType": "ExprStmt",
+			"Expression": {
+				"NodeType": "TernaryExpr",
+				"Condition": {
+					"NodeType": "NumberLiteral",
+					"Value": "1"
+				},
+				"Consequent": {
+					"NodeType": "NumberLiteral",
+					"Value": "2"
+				},
+				"Other": {
+					"NodeType": "NumberLiteral",
+					"Value": "3"
+				}
+			}
+		},
+		{
+			"NodeType": "ExprStmt",
+			"Expression": {
+				"NodeType": "PrefixExpr",
+				"Right": {
+					"NodeType": "Identifier",
+					"Value": "i"
+				},
+				"Op": "++"
+			}
+		},
+		{
+			"NodeType": "ExprStmt",
+			"Expression": {
+				"NodeType": "PostfixExpr",
+				"Left": {
+					"NodeType": "Identifier",
+					"Value": "i"
+				},
+				"Op": "--"
+			}
+		},
+		{
+			"NodeType": "ExprStmt",
+			"Expression": {
+				"NodeType": "ParenthesizedExpr",
+				"Expression": {
+					"NodeType": "PostfixExpr",
+					"Left": {
+						"NodeType": "ParenthesizedExpr",
+						"Expression": {
+							"NodeType": "ParenthesizedExpr",
+							"Expression": {
+								"NodeType": "ParenthesizedExpr",
+								"Expression": {
+									"NodeType": "Identifier",
+									"Value": "i"
+								}
+							}
+						}
+					},
+					"Op": "++"
+				}
+			}
+		},
+		{
+			"NodeType": "ExprStmt",
+			"Expression": {
+				"NodeType": "PrefixExpr",
+				"Right": {
+					"NodeType": "Identifier",
+					"Value": "i"
+				},
+				"Op": "--"
+			}
+		},
+		{
+			"NodeType": "VarStmt",
+			"Name": "z",
+			"Value": {
+				"NodeType": "NumberLiteral",
+				"Value": "1"
+			},
+			"IsConst": false
+		},
+		{
+			"NodeType": "VarStmt",
+			"Name": "q",
+			"Value": {
+				"NodeType": "NumberLiteral",
+				"Value": "2"
+			},
+			"IsConst": true
+		},
+		{
+			"NodeType": "ExprStmt",
+			"Expression": {
+				"NodeType": "AssignExpr",
+				"Left": {
+					"NodeType": "Identifier",
+					"Value": "z"
+				},
+				"Right": {
+					"NodeType": "NumberLiteral",
+					"Value": "4"
+				},
+				"Op": "="
+			}
+		},
+		{
+			"NodeType": "FuncStmt",
+			"Name": "h",
+			"Args": [
+				{
+					"NodeType": "Identifier",
+					"Value": "a"
+				},
+				{
+					"NodeType": "Identifier",
+					"Value": "b"
+				},
+				{
+					"NodeType": "Identifier",
+					"Value": "c"
+				}
+			],
+			"Body": [
+				{
+					"NodeType": "ForStmt",
+					"Init": {
+						"NodeType": "Identifier",
+						"Value": "a"
+					},
+					"Condition": {
+						"NodeType": "Identifier",
+						"Value": "b"
+					},
+					"After": {
+						"NodeType": "Identifier",
+						"Value": "c"
+					},
+					"Statement": {
+						"NodeType": "ExprStmt",
+						"Expression": {
+							"NodeType": "BinaryExpr",
+							"Left": {
+								"NodeType": "NumberLiteral",
+								"Value": "1"
+							},
+							"Right": {
+								"NodeType": "NumberLiteral",
+								"Value": "1"
+							},
+							"Op": "+"
+						}
+					}
+				},
+				{
+					"NodeType": "ForStmt",
+					"Init": {
+						"NodeType": "Identifier",
+						"Value": "a"
+					},
+					"Condition": null,
+					"After": null,
+					"Statement": {
+						"NodeType": "ExprStmt",
+						"Expression": {
+							"NodeType": "BinaryExpr",
+							"Left": {
+								"NodeType": "NumberLiteral",
+								"Value": "2"
+							},
+							"Right": {
+								"NodeType": "NumberLiteral",
+								"Value": "2"
+							},
+							"Op": "+"
+						}
+					}
+				},
+				{
+					"NodeType": "ForStmt",
+					"Init": null,
+					"Condition": {
+						"NodeType": "Identifier",
+						"Value": "b"
+					},
+					"After": null,
+					"Statement": {
+						"NodeType": "ExprStmt",
+						"Expression": {
+							"NodeType": "BinaryExpr",
+							"Left": {
+								"NodeType": "NumberLiteral",
+								"Value": "9"
+							},
+							"Right": {
+								"NodeType": "NumberLiteral",
+								"Value": "1"
+							},
+							"Op": "+"
+						}
+					}
+				},
+				{
+					"NodeType": "ForStmt",
+					"Init": null,
+					"Condition": null,
+					"After": {
+						"NodeType": "Identifier",
+						"Value": "c"
+					},
+					"Statement": {
+						"NodeType": "ExprStmt",
+						"Expression": {
+							"NodeType": "BinaryExpr",
+							"Left": {
+								"NodeType": "NumberLiteral",
+								"Value": "9"
+							},
+							"Right": {
+								"NodeType": "NumberLiteral",
+								"Value": "1"
+							},
+							"Op": "/"
+						}
+					}
+				},
+				{
+					"NodeType": "ForStmt",
+					"Init": {
+						"NodeType": "Identifier",
+						"Value": "a"
+					},
+					"Condition": null,
+					"After": {
+						"NodeType": "Identifier",
+						"Value": "c"
+					},
+					"Statement": {
+						"NodeType": "ExprStmt",
+						"Expression": {
+							"NodeType": "BinaryExpr",
+							"Left": {
+								"NodeType": "NumberLiteral",
+								"Value": "1"
+							},
+							"Right": {
+								"NodeType": "NumberLiteral",
+								"Value": "9"
+							},
+							"Op": "/"
+						}
+					}
+				},
+				{
+					"NodeType": "ForStmt",
+					"Init": {
+						"NodeType": "Identifier",
+						"Value": "a"
+					},
+					"Condition": {
+						"NodeType": "Identifier",
+						"Value": "b"
+					},
+					"After": null,
+					"Statement": {
+						"NodeType": "BodyStmt",
+						"Body": [
+							{
+								"NodeType": "ExprStmt",
+								"Expression": {
+									"NodeType": "BinaryExpr",
+									"Left": {
+										"NodeType": "NumberLiteral",
+										"Value": "9"
+									},
+									"Right": {
+										"NodeType": "NumberLiteral",
+										"Value": "1"
+									},
+									"Op": "/"
+								}
+							}
+						]
+					}
+				},
+				{
+					"NodeType": "ForStmt",
+					"Init": null,
+					"Condition": {
+						"NodeType": "Identifier",
+						"Value": "b"
+					},
+					"After": {
+						"NodeType": "Identifier",
+						"Value": "c"
+					},
+					"Statement": {
+						"NodeType": "BodyStmt",
+						"Body": [
+							{
+								"NodeType": "ExprStmt",
+								"Expression": {
+									"NodeType": "BinaryExpr",
+									"Left": {
+										"NodeType": "NumberLiteral",
+										"Value": "9"
+									},
+									"Right": {
+										"NodeType": "NumberLiteral",
+										"Value": "11"
+									},
+									"Op": "/"
+								}
+							}
+						]
+					}
+				},
+				{
+					"NodeType": "ForStmt",
+					"Init": null,
+					"Condition": null,
+					"After": null,
+					"Statement": {
+						"NodeType": "ExprStmt",
+						"Expression": {
+							"NodeType": "AssignExpr",
+							"Left": {
+								"NodeType": "Identifier",
+								"Value": "z"
+							},
+							"Right": {
+								"NodeType": "NumberLiteral",
+								"Value": "9"
+							},
+							"Op": "="
+						}
+					}
+				}
+			]
+		},
+		{
+			"NodeType": "ExprStmt",
+			"Expression": {
+				"NodeType": "",
+				"Caller": {
+					"NodeType": "Identifier",
+					"Value": "h"
+				},
+				"Args": [
+					{
+						"NodeType": "NumberLiteral",
+						"Value": "1"
+					},
+					{
+						"NodeType": "NumberLiteral",
+						"Value": "2"
+					},
+					{
+						"NodeType": "NumberLiteral",
+						"Value": "3"
+					}
+				]
+			}
+		},
+		{
+			"NodeType": "IfStmt",
+			"Condition": {
+				"NodeType": "BinaryExpr",
+				"Left": {
+					"NodeType": "NumberLiteral",
+					"Value": "1"
+				},
+				"Right": {
+					"NodeType": "NumberLiteral",
+					"Value": "2"
+				},
+				"Op": "=="
+			},
+			"Consequent": {
+				"NodeType": "BodyStmt",
+				"Body": [
+					{
+						"NodeType": "ExprStmt",
+						"Expression": {
+							"NodeType": "NumberLiteral",
+							"Value": "1"
+						}
+					}
+				]
+			},
+			"Other": {
+				"NodeType": "BodyStmt",
+				"Body": [
+					{
+						"NodeType": "ExprStmt",
+						"Expression": {
+							"NodeType": "NumberLiteral",
+							"Value": "2"
+						}
+					}
+				]
+			}
+		},
+		{
+			"NodeType": "IfStmt",
+			"Condition": {
+				"NodeType": "BinaryExpr",
+				"Left": {
+					"NodeType": "NumberLiteral",
+					"Value": "1"
+				},
+				"Right": {
+					"NodeType": "NumberLiteral",
+					"Value": "2"
+				},
+				"Op": "=="
+			},
+			"Consequent": {
+				"NodeType": "BodyStmt",
+				"Body": [
+					{
+						"NodeType": "ExprStmt",
+						"Expression": {
+							"NodeType": "NumberLiteral",
+							"Value": "1"
+						}
+					}
+				]
+			},
+			"Other": {
+				"NodeType": "ExprStmt",
+				"Expression": {
+					"NodeType": "NumberLiteral",
+					"Value": "2"
+				}
+			}
+		},
+		{
+			"NodeType": "IfStmt",
+			"Condition": {
+				"NodeType": "BinaryExpr",
+				"Left": {
+					"NodeType": "NumberLiteral",
+					"Value": "1"
+				},
+				"Right": {
+					"NodeType": "NumberLiteral",
+					"Value": "2"
+				},
+				"Op": "=="
+			},
+			"Consequent": {
+				"NodeType": "ExprStmt",
+				"Expression": {
+					"NodeType": "NumberLiteral",
+					"Value": "1"
+				}
+			},
+			"Other": {
+				"NodeType": "ExprStmt",
+				"Expression": {
+					"NodeType": "NumberLiteral",
+					"Value": "2"
+				}
+			}
+		},
+		{
+			"NodeType": "ForStmt",
+			"Init": {
+				"NodeType": "VarStmt",
+				"Name": "e",
+				"Value": {
+					"NodeType": "NumberLiteral",
+					"Value": "1"
+				},
+				"IsConst": true
+			},
+			"Condition": null,
+			"After": null,
+			"Statement": {
+				"NodeType": "BodyStmt",
+				"Body": []
+			}
+		},
+		{
+			"NodeType": "ForStmt",
+			"Init": {
+				"NodeType": "VarStmt",
+				"Name": "e",
+				"Value": {
+					"NodeType": "NumberLiteral",
+					"Value": "1"
+				},
+				"IsConst": true
+			},
+			"Condition": null,
+			"After": null,
+			"Statement": {
+				"NodeType": "ExprStmt",
+				"Expression": {
+					"NodeType": "NumberLiteral",
+					"Value": "2"
+				}
+			}
+		},
+		{
+			"NodeType": "VarStmt",
+			"Name": "a",
+			"Value": {
+				"NodeType": "AssignExpr",
+				"Left": {
+					"NodeType": "Identifier",
+					"Value": "b"
+				},
+				"Right": {
+					"NodeType": "AssignExpr",
+					"Left": {
+						"NodeType": "Identifier",
+						"Value": "c"
+					},
+					"Right": {
+						"NodeType": "AssignExpr",
+						"Left": {
+							"NodeType": "Identifier",
+							"Value": "d"
+						},
+						"Right": {
+							"NodeType": "AssignExpr",
+							"Left": {
+								"NodeType": "Identifier",
+								"Value": "e"
+							},
+							"Right": {
+								"NodeType": "AssignExpr",
+								"Left": {
+									"NodeType": "Identifier",
+									"Value": "f"
+								},
+								"Right": {
+									"NodeType": "AssignExpr",
+									"Left": {
+										"NodeType": "Identifier",
+										"Value": "g"
+									},
+									"Right": {
+										"NodeType": "NumberLiteral",
+										"Value": "69"
+									},
+									"Op": "="
+								},
+								"Op": "="
+							},
+							"Op": "="
+						},
+						"Op": "="
+					},
+					"Op": "="
+				},
+				"Op": "="
+			},
+			"IsConst": false
+		},
+		{
+			"NodeType": "VarStmtList",
+			"Stmts": [
+				{
+					"NodeType": "VarStmt",
+					"Name": "a",
+					"Value": {
+						"NodeType": "NumberLiteral",
+						"Value": "1"
+					},
+					"IsConst": false
+				},
+				{
+					"NodeType": "VarStmt",
+					"Name": "b",
+					"Value": {
+						"NodeType": "NumberLiteral",
+						"Value": "2"
+					},
+					"IsConst": false
+				},
+				{
+					"NodeType": "VarStmt",
+					"Name": "c",
+					"Value": {
+						"NodeType": "NumberLiteral",
+						"Value": "3"
+					},
+					"IsConst": false
+				},
+				{
+					"NodeType": "VarStmt",
+					"Name": "d",
+					"Value": {
+						"NodeType": "NumberLiteral",
+						"Value": "4"
+					},
+					"IsConst": false
+				},
+				{
+					"NodeType": "VarStmt",
+					"Name": "e",
+					"Value": {
+						"NodeType": "NumberLiteral",
+						"Value": "5"
+					},
+					"IsConst": false
+				},
+				{
+					"NodeType": "VarStmt",
+					"Name": "f",
+					"Value": {
+						"NodeType": "NumberLiteral",
+						"Value": "6"
+					},
+					"IsConst": false
+				},
+				{
+					"NodeType": "VarStmt",
+					"Name": "g",
+					"Value": {
+						"NodeType": "NumberLiteral",
+						"Value": "69"
+					},
+					"IsConst": false
+				}
+			]
+		},
+		{
+			"NodeType": "VarStmt",
+			"Name": "a",
+			"Value": {
+				"NodeType": "AssignExpr",
+				"Left": {
+					"NodeType": "Identifier",
+					"Value": "b"
+				},
+				"Right": {
+					"NodeType": "AssignExpr",
+					"Left": {
+						"NodeType": "Identifier",
+						"Value": "c"
+					},
+					"Right": {
+						"NodeType": "AssignExpr",
+						"Left": {
+							"NodeType": "Identifier",
+							"Value": "d"
+						},
+						"Right": {
+							"NodeType": "AssignExpr",
+							"Left": {
+								"NodeType": "Identifier",
+								"Value": "e"
+							},
+							"Right": {
+								"NodeType": "AssignExpr",
+								"Left": {
+									"NodeType": "Identifier",
+									"Value": "f"
+								},
+								"Right": {
+									"NodeType": "AssignExpr",
+									"Left": {
+										"NodeType": "Identifier",
+										"Value": "g"
+									},
+									"Right": {
+										"NodeType": "NumberLiteral",
+										"Value": "69"
+									},
+									"Op": "="
+								},
+								"Op": "="
+							},
+							"Op": "="
+						},
+						"Op": "="
+					},
+					"Op": "="
+				},
+				"Op": "="
+			},
+			"IsConst": true
+		},
+		{
+			"NodeType": "VarStmtList",
+			"Stmts": [
+				{
+					"NodeType": "VarStmt",
+					"Name": "a",
+					"Value": {
+						"NodeType": "NumberLiteral",
+						"Value": "1"
+					},
+					"IsConst": true
+				},
+				{
+					"NodeType": "VarStmt",
+					"Name": "b",
+					"Value": {
+						"NodeType": "NumberLiteral",
+						"Value": "2"
+					},
+					"IsConst": true
+				},
+				{
+					"NodeType": "VarStmt",
+					"Name": "c",
+					"Value": {
+						"NodeType": "NumberLiteral",
+						"Value": "3"
+					},
+					"IsConst": true
+				},
+				{
+					"NodeType": "VarStmt",
+					"Name": "d",
+					"Value": {
+						"NodeType": "NumberLiteral",
+						"Value": "4"
+					},
+					"IsConst": true
+				},
+				{
+					"NodeType": "VarStmt",
+					"Name": "e",
+					"Value": {
+						"NodeType": "NumberLiteral",
+						"Value": "5"
+					},
+					"IsConst": true
+				},
+				{
+					"NodeType": "VarStmt",
+					"Name": "f",
+					"Value": {
+						"NodeType": "NumberLiteral",
+						"Value": "6"
+					},
+					"IsConst": true
+				},
+				{
+					"NodeType": "VarStmt",
+					"Name": "g",
+					"Value": {
+						"NodeType": "NumberLiteral",
+						"Value": "69"
+					},
+					"IsConst": true
+				}
+			]
+		},
+		{
+			"NodeType": "WhileStmt",
+			"Condition": {
+				"NodeType": "NumberLiteral",
+				"Value": "1"
+			},
+			"Body": {
+				"NodeType": "BodyStmt",
+				"Body": []
+			}
+		},
+		{
+			"NodeType": "WhileStmt",
+			"Condition": {
+				"NodeType": "NumberLiteral",
+				"Value": "1"
+			},
+			"Body": {
+				"NodeType": "ExprStmt",
+				"Expression": {
+					"NodeType": "NumberLiteral",
+					"Value": "1"
+				}
+			}
+		},
+		{
+			"NodeType": "ForInStmt",
+			"Var": "e",
+			"IsConst": true,
+			"Object": {
+				"NodeType": "Identifier",
+				"Value": "obj"
+			},
+			"Statement": {
+				"NodeType": "BodyStmt",
+				"Body": [
+					{
+						"NodeType": "ExprStmt",
+						"Expression": {
+							"NodeType": "Identifier",
+							"Value": "e"
+						}
+					}
+				]
+			}
+		},
+		{
+			"NodeType": "ForInStmt",
+			"Var": "e",
+			"IsConst": true,
+			"Object": {
+				"NodeType": "Identifier",
+				"Value": "obj"
+			},
+			"Statement": {
+				"NodeType": "ExprStmt",
+				"Expression": {
+					"NodeType": "Identifier",
+					"Value": "e"
+				}
+			}
+		}
+	]
+}

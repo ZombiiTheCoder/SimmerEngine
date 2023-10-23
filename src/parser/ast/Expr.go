@@ -1,6 +1,9 @@
 package ast
 
-import "simmer_js_engine/parser/tokens"
+import (
+	"simmer_js_engine/parser/tokens"
+	"strings"
+)
 
 type AssignExpr struct {
 	Expr `json:"-"`
@@ -9,14 +12,19 @@ type AssignExpr struct {
 	Right Expr
 	Op    tokens.TokenType
 }
+func (n AssignExpr) GetNodeType() string { return n.NodeType }
+func (n AssignExpr) ToString() string { return n.Right.ToString() + " " + string(n.Op) + " " + n.Left.ToString()}
+
 
 type TernaryExpr struct {
 	Expr `json:"-"`
 	NodeType string
 	Condition  Expr
 	Consequent Expr
-	Else Expr
+	Other Expr
 }
+func (n TernaryExpr) GetNodeType() string { return n.NodeType }
+func (n TernaryExpr) ToString() string { return n.Condition.ToString() + "?" + n.Consequent.ToString() + ":" + n.Other.ToString()}
 
 type PrefixExpr struct {
 	Expr `json:"-"`
@@ -24,6 +32,8 @@ type PrefixExpr struct {
 	Right  Expr
 	Op    tokens.TokenType
 }
+func (n PrefixExpr) GetNodeType() string { return n.NodeType }
+func (n PrefixExpr) ToString() string { return n.Right.ToString() + string(n.Op)}
 
 type BinaryExpr struct {
 	Expr `json:"-"`
@@ -32,6 +42,17 @@ type BinaryExpr struct {
 	Right Expr
 	Op    tokens.TokenType
 }
+func (n BinaryExpr) GetNodeType() string { return n.NodeType }
+func (n BinaryExpr) ToString() string { return n.Right.ToString() + " " + string(n.Op) + " " + n.Left.ToString()}
+
+type ParenthesizedExpr struct {
+	Expr       `json:"-"`
+	NodeType   string
+	Expression Expr
+}
+
+func (n ParenthesizedExpr) GetNodeType() string { return n.Expression.GetNodeType() }
+func (n ParenthesizedExpr) ToString() string { return "("+n.Expression.ToString()+")" }
 
 type PostfixExpr struct {
 	Expr `json:"-"`
@@ -39,10 +60,26 @@ type PostfixExpr struct {
 	Left  Expr
 	Op    tokens.TokenType
 }
+func (n PostfixExpr) GetNodeType() string { return n.NodeType }
+func (n PostfixExpr) ToString() string { return string(n.Op) + n.Left.ToString()}
 
 type CallExpr struct {
 	Expr `json:"-"`
 	NodeType string
 	Caller  Expr
 	Args []Expr
+}
+func (n CallExpr) GetNodeType() string { return n.NodeType }
+func (n CallExpr) ToString() string {
+	str := new(strings.Builder)
+	str.WriteString(n.Caller.ToString())
+	str.WriteString("(")
+	for i := 0; i < len(n.Args); i++ {
+		str.WriteString(n.Args[i].ToString())
+		if i != (len(n.Args)-1) {
+			str.WriteString(",")
+		}
+	}
+	str.WriteString(")")
+	return str.String()
 }
