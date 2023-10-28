@@ -48,6 +48,17 @@ func insert(a []tokens.Token, index int, value tokens.Token) []tokens.Token {
 
 func (p *Parser) ParseStmt() ast.Stmt {
 	switch p.At().Type {
+	case tokens.With: fmt.Println("WITH STATEMENT IS NOT IMPLEMENTED AND MAY NOT BE IMPLEMENTED"); os.Exit(-1); return ast.ContinueStmt{};
+	case tokens.Continue: {
+		p.Expect(tokens.Continue)
+		if p.At().Type == tokens.SemiColon { p.Expect(tokens.SemiColon) }
+		return ast.Stmt(ast.ContinueStmt{ NodeType:"ContinueStmt" })
+	}
+	case tokens.Break: {
+		p.Expect(tokens.Break)
+		if p.At().Type == tokens.SemiColon { p.Expect(tokens.SemiColon) }
+		return ast.Stmt(ast.BreakStmt{ NodeType:"BreakStmt" })
+	}
 	case tokens.Return: return p.ParseReturnStmt()
 	case tokens.While: return p.ParseWhileStmt()
 	case tokens.If: return p.ParseIfStmt()
@@ -59,7 +70,6 @@ func (p *Parser) ParseStmt() ast.Stmt {
 			NodeType: "ExprStmt",
 			Expression: p.ParseExpr(),
 		})
-		if p.At().Type == tokens.SemiColon { p.Expect(tokens.SemiColon) }
 		if p.At().Type == tokens.SemiColon { p.Expect(tokens.SemiColon) }
 		return stmt;
 	}
@@ -531,27 +541,33 @@ func (p *Parser) ParsePrimaryExpr() ast.Expr {
 			Value:    p.Next().Value,
 	}
 	case tokens.Number:
-		return ast.NumberLiteral{
+		return ast.Literal{
 			NodeType: "NumberLiteral",
 			Value:    p.Next().Value,
 	}
 	case tokens.String:
-		return ast.StringLiteral{
+		return ast.Literal{
 			NodeType: "StringLiteral",
+			Value:    p.Next().Value,
+	}
+	case tokens.True, tokens.False:
+		return ast.Literal{
+			NodeType: "BooleanLiteral",
+			Value:    p.Next().Value,
+	}
+	case tokens.Null:
+		return ast.Literal{
+			NodeType: "NullLiteral",
 			Value:    p.Next().Value,
 	}
 	case tokens.OpenParen:
 		p.Expect(tokens.OpenParen)
-		expr := p.ParseAssignExpr()
-		exp := ast.ParenthesizedExpr{
-			NodeType: "ParenthesizedExpr",
-			Expression: expr,
-		}
+		expr := p.ParseExpr()
 		p.Expect(tokens.CloseParen)
-		return exp
+		return expr
 	default:
 		fmt.Println("Unexpected Token: " + fmt.Sprint(p.At().Type) +" Line: "+strconv.Itoa(p.At().Line+1))
 		os.Exit(-1)
-		return ast.NumberLiteral{Value: p.At().Value}
+		return ast.Literal{Value: p.At().Value}
 	}
 }

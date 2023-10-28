@@ -11,6 +11,10 @@ type TokenType string
 const (
 	Invalid TokenType = "!!!!!!!!!!!!!!!!!!"
 
+	True  = "True"
+	False = "False"
+	Null  = "Null"
+
 	Equals       = "=="
 	EqualsAssign = "="
 
@@ -184,6 +188,12 @@ func GetKeyword(keyword string) TokenType {
 		return Import
 	case "try":
 		return Try
+	case "true":
+		return True
+	case "false":
+		return False
+	case "null":
+		return Null
 	default:
 		return Identifier
 	}

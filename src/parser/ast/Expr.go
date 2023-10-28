@@ -13,7 +13,7 @@ type AssignExpr struct {
 	Op    tokens.TokenType
 }
 func (n AssignExpr) GetNodeType() string { return n.NodeType }
-func (n AssignExpr) ToString() string { return n.Right.ToString() + " " + string(n.Op) + " " + n.Left.ToString()}
+func (n AssignExpr) ToString() string { return n.Left.ToString() + " " + string(n.Op) + " " + n.Right.ToString()}
 
 
 type TernaryExpr struct {
@@ -33,7 +33,7 @@ type PrefixExpr struct {
 	Op    tokens.TokenType
 }
 func (n PrefixExpr) GetNodeType() string { return n.NodeType }
-func (n PrefixExpr) ToString() string { return n.Right.ToString() + string(n.Op)}
+func (n PrefixExpr) ToString() string { return string(n.Op) + n.Right.ToString()}
 
 type BinaryExpr struct {
 	Expr `json:"-"`
@@ -43,16 +43,7 @@ type BinaryExpr struct {
 	Op    tokens.TokenType
 }
 func (n BinaryExpr) GetNodeType() string { return n.NodeType }
-func (n BinaryExpr) ToString() string { return n.Right.ToString() + " " + string(n.Op) + " " + n.Left.ToString()}
-
-type ParenthesizedExpr struct {
-	Expr       `json:"-"`
-	NodeType   string
-	Expression Expr
-}
-
-func (n ParenthesizedExpr) GetNodeType() string { return n.Expression.GetNodeType() }
-func (n ParenthesizedExpr) ToString() string { return "("+n.Expression.ToString()+")" }
+func (n BinaryExpr) ToString() string { return "("+n.Left.ToString() + " " + string(n.Op) + " " + n.Right.ToString()+")"}
 
 type PostfixExpr struct {
 	Expr `json:"-"`
@@ -61,7 +52,7 @@ type PostfixExpr struct {
 	Op    tokens.TokenType
 }
 func (n PostfixExpr) GetNodeType() string { return n.NodeType }
-func (n PostfixExpr) ToString() string { return string(n.Op) + n.Left.ToString()}
+func (n PostfixExpr) ToString() string { return n.Left.ToString() + string(n.Op)}
 
 type CallExpr struct {
 	Expr `json:"-"`

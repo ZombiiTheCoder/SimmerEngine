@@ -1,0 +1,70 @@
+{
+	"NodeType": "Program",
+	"Body": [
+		{
+			"NodeType": "ExprStmt",
+			"Expression": {
+				"NodeType": "BinaryExpr",
+				"Left": {
+					"NodeType": "NumberLiteral",
+					"Value": "1"
+				},
+				"Right": {
+					"NodeType": "BinaryExpr",
+					"Left": {
+						"NodeType": "NumberLiteral",
+						"Value": "1"
+					},
+					"Right": {
+						"NodeType": "ParenthesizedExpr",
+						"Expression": {
+							"NodeType": "BinaryExpr",
+							"Left": {
+								"NodeType": "NumberLiteral",
+								"Value": "1"
+							},
+							"Right": {
+								"NodeType": "NumberLiteral",
+								"Value": "1"
+							},
+							"Op": "+"
+						}
+					},
+					"Op": "*"
+				},
+				"Op": "+"
+			}
+		},
+		{
+			"NodeType": "ExprStmt",
+			"Expression": {
+				"NodeType": "BinaryExpr",
+				"Left": {
+					"NodeType": "BinaryExpr",
+					"Left": {
+						"NodeType": "NumberLiteral",
+						"Value": "1"
+					},
+					"Right": {
+						"NodeType": "BinaryExpr",
+						"Left": {
+							"NodeType": "NumberLiteral",
+							"Value": "1"
+						},
+						"Right": {
+							"NodeType": "NumberLiteral",
+							"Value": "1"
+						},
+						"Op": "*"
+					},
+					"Op": "+"
+				},
+				"Right": {
+					"NodeType": "NumberLiteral",
+					"Value": "1"
+				},
+				"Op": "+"
+			}
+		}
+	]
+}

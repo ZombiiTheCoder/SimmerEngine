@@ -9,20 +9,11 @@ type Identifier struct {
 func (n Identifier) GetNodeType() string { return n.NodeType }
 func (n Identifier) ToString() string    { return n.Value }
 
-type NumberLiteral struct {
+type Literal struct {
 	Expr     `json:"-"`
 	NodeType string
 	Value    string
 }
 
-func (n NumberLiteral) GetNodeType() string { return n.NodeType }
-func (n NumberLiteral) ToString() string    { return n.Value }
-
-type StringLiteral struct {
-	Expr     `json:"-"`
-	NodeType string
-	Value    string
-}
-
-func (n StringLiteral) GetNodeType() string { return n.NodeType }
-func (n StringLiteral) ToString() string    { return n.Value }
+func (n Literal) GetNodeType() string { return n.NodeType }
+func (n Literal) ToString() string    { return n.Value }

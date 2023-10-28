@@ -124,8 +124,8 @@ func (l *Lexer) Tokenize() []tokens.Token {
 		if l.At() == '"' || l.At() == '`' || l.At() == '\'' {
 			l.Next()
 			pos := l.ptr
-			for l.At() == '"' || l.At() == '`' || l.At() == '\'' && !l.isEof { l.Next() }
-			l.addToken(string(l.chars[pos:l.ptr]), tokens.String)
+			for l.At() != '"' && !l.isEof || l.At() != '`' && !l.isEof || l.At() != '\'' && !l.isEof { l.Next() }
+			l.addToken(string(l.chars[pos:l.ptr-1]), tokens.String)
 			l.Next()
 		}
 	}

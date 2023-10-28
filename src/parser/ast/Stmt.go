@@ -201,3 +201,27 @@ func (n WhileStmt) ToString() string {
 	str.WriteString(n.Body.ToString())
 	return str.String()
 }
+
+type ContinueStmt struct {
+	Stmt       `json:"-"`
+	NodeType   string
+}
+
+func (n ContinueStmt) GetNodeType() string { return n.NodeType }
+func (n ContinueStmt) ToString() string {
+	str := new(strings.Builder)
+	str.WriteString("continue")
+	return str.String()
+}
+
+type BreakStmt struct {
+	Stmt       `json:"-"`
+	NodeType   string
+}
+
+func (n BreakStmt) GetNodeType() string { return n.NodeType }
+func (n BreakStmt) ToString() string {
+	str := new(strings.Builder)
+	str.WriteString("break")
+	return str.String()
+}
