@@ -5,12 +5,11 @@ import (
 	"fmt"
 	"io/fs"
 	"os"
+	"simmer_js_engine/compiler"
+	"simmer_js_engine/compiler/vm"
 	"simmer_js_engine/parser"
 	"simmer_js_engine/parser/ast"
 	"simmer_js_engine/parser/lexer"
-	"simmer_js_engine/visitor"
-	opcode "simmer_js_engine/visitor/opcodes"
-	"simmer_js_engine/vm"
 	"strings"
 )
 
@@ -33,13 +32,10 @@ func main() {
 			os.WriteFile(os.Args[3], []byte(ast.ToString()), fs.FileMode(os.O_CREATE))
 		}
 	}
-	fmt.Println("-------------------------------")
-	v := visitor.InitVisitor()
-	v.Visit(ast)
-	v.Emit(opcode.OP_RETURN)
-	fmt.Println("-------------------------------")
-	v.Chunk.Disassemble("Program")
-	fmt.Println("-------------------------------")
-	vm := vm.InitVM()
-	vm.Interpret(v.Chunk)
+	fmt.Println("----------------ByteCode----------------")
+	c := compiler.InitCompiler()
+	c.Compile(ast)
+	fmt.Println("-----------------Output-----------------")
+	vm := vm.InitVM(c.Bytecode())
+	fmt.Println(vm.Run())
 }

@@ -541,25 +541,24 @@ func (p *Parser) ParsePrimaryExpr() ast.Expr {
 			Value:    p.Next().Value,
 	}
 	case tokens.Number:
-		return ast.Literal{
+		val, _ := strconv.ParseFloat(p.Next().Value, 64)
+		return ast.NumberLiteral{
 			NodeType: "NumberLiteral",
-			Value:    p.Next().Value,
+			Value:    val,
 	}
 	case tokens.String:
-		return ast.Literal{
+		return ast.StringLiteral{
 			NodeType: "StringLiteral",
 			Value:    p.Next().Value,
 	}
 	case tokens.True, tokens.False:
-		return ast.Literal{
+		val, _ := strconv.ParseBool(p.Next().Value)
+		return ast.BooleanLiteral{
 			NodeType: "BooleanLiteral",
-			Value:    p.Next().Value,
+			Value:    val,
 	}
 	case tokens.Null:
-		return ast.Literal{
-			NodeType: "NullLiteral",
-			Value:    p.Next().Value,
-	}
+		return ast.NullLiteral{}
 	case tokens.OpenParen:
 		p.Expect(tokens.OpenParen)
 		expr := p.ParseExpr()
@@ -568,6 +567,6 @@ func (p *Parser) ParsePrimaryExpr() ast.Expr {
 	default:
 		fmt.Println("Unexpected Token: " + fmt.Sprint(p.At().Type) +" Line: "+strconv.Itoa(p.At().Line+1))
 		os.Exit(-1)
-		return ast.Literal{Value: p.At().Value}
+		return ast.NumberLiteral{Value: 1}
 	}
 }

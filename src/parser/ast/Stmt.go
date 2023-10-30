@@ -180,8 +180,10 @@ func (n IfStmt) ToString() string {
 	str.WriteString(")")
 	str.WriteString(n.Consequent.ToString())
 	if (n.Consequent.GetNodeType() != "BodyStmt") { str.WriteString(" ;") }
-	str.WriteString("else ")
-	str.WriteString(n.Other.ToString())
+	if n.Other != nil {
+		str.WriteString("else ")
+		str.WriteString(n.Other.ToString())
+	}
 	return str.String()
 }
 
